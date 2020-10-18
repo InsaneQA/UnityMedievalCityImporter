@@ -47,7 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _jsonName: 
   _cityPrefabPath: Assets/Prefabs/
-  _scale: 4000
+  _scale: 0.03
+  _updateCityTransformScale: 1
+  _transformScaleFactor: 4
+  _city: {fileID: 0}
 --- !u!114 &2050038629827161224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,11 +73,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2050038630561182187}
   - component: {fileID: 2050038630561182181}
-  - component: {fileID: 2050038630561182184}
   - component: {fileID: 2050038630561182185}
   - component: {fileID: 2050038630561182182}
   - component: {fileID: 2050038630561182183}
   - component: {fileID: 2050038630561182180}
+  - component: {fileID: 7521153856757652811}
+  - component: {fileID: 4359895164946160735}
   m_Layer: 0
   m_Name: Creators
   m_TagString: Untagged
@@ -109,20 +113,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _folder: Assets/Levels/Meshes/
---- !u!114 &2050038630561182184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050038630561182186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0108d1124d3d3c34eb5f0c3dc122fea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buildingPrefab: {fileID: 7725567109345287491, guid: bb614a8b45e83954da47cd4690a96720,
-    type: 3}
 --- !u!114 &2050038630561182185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,6 +125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece990aa882ef3042bdc7f14a99aa12f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enabled: 1
   _createWallsSeparately: 1
   _towerPrefab: {fileID: 6034553323792719514, guid: 80a058699d804444dbdd61fc695ae6b6,
     type: 3}
@@ -152,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b5badc9f23e2994780ad5ff3e777eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enabled: 1
   _roadPrefab: {fileID: 1246708242267961065, guid: 29bcda58ccd74cc4881f88405ada4cdb,
     type: 3}
 --- !u!114 &2050038630561182183
@@ -166,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 408a7566bfaf83d4ba6fec91dd8a5635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enabled: 1
   _waterPrefab: {fileID: 3852657034685883526, guid: f95d32ae389625644a1b82018ce81eb5,
     type: 3}
 --- !u!114 &2050038630561182180
@@ -180,5 +173,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4eb6162b651596d418f72bdf6f7bdf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enabled: 1
   _riverPrefab: {fileID: 7637482500003768193, guid: 6c7df8e459d40524396d80afbe3ed374,
+    type: 3}
+--- !u!114 &7521153856757652811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050038630561182186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e891b85483b4ed143962c1e3b13c3c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enabled: 1
+  _buildingLinePrefab: {fileID: 1246708242267961065, guid: 97ef2948a16e9d2409326cae5e0fde6f,
+    type: 3}
+--- !u!114 &4359895164946160735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050038630561182186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0108d1124d3d3c34eb5f0c3dc122fea0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enabled: 1
+  _buildingPrefab: {fileID: 7725567109345287491, guid: bb614a8b45e83954da47cd4690a96720,
     type: 3}

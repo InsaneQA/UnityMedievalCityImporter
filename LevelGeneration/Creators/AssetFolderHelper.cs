@@ -1,14 +1,26 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
-
-namespace Assets.Scripts.Logic.LevelGeneration.Creators
+﻿namespace Assets.Scripts.Logic.LevelGeneration.Creators
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using UnityEditor;
+    using UnityEngine;
+
+    /// <summary>
+    /// Defines the <see cref="AssetFolderHelper" />.
+    /// </summary>
     public static class AssetFolderHelper
     {
+        /// <summary>
+        /// Defines the _assetFolder.
+        /// </summary>
         private const string _assetFolder = "Assets";
 
+        /// <summary>
+        /// The CreateFolderToSaveCity.
+        /// </summary>
+        /// <param name="city">The city<see cref="GameObject"/>.</param>
+        /// <param name="meshFolder">The meshFolder<see cref="string"/>.</param>
+        /// <returns>The <see cref="string"/>.</returns>
         public static string CreateFolderToSaveCity(GameObject city, string meshFolder)
         {
             var folderHierarchy = CreateFolderHierarchyFromString(meshFolder);
@@ -34,6 +46,11 @@ namespace Assets.Scripts.Logic.LevelGeneration.Creators
             return oldFolderName + "/";
         }
 
+        /// <summary>
+        /// The CreateFolderHierarchyFromString.
+        /// </summary>
+        /// <param name="meshFolder">The meshFolder<see cref="string"/>.</param>
+        /// <returns>The <see cref="List{string}"/>.</returns>
         private static List<string> CreateFolderHierarchyFromString(string meshFolder)
         {
             var folderHierarchy = meshFolder.Split('/').ToList();

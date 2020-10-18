@@ -1,20 +1,37 @@
-﻿using GeoJSON.Net.Feature;
-using GeoJSON.Net.Geometry;
-using UnityEngine;
-
-namespace Assets.Scripts.Logic.LevelGeneration.Creators
+﻿namespace Assets.Scripts.Logic.LevelGeneration.Creators
 {
+    using UnityEngine;
+
+    /// <summary>
+    /// Defines the <see cref="RiversCreator" />.
+    /// </summary>
     public class RiversCreator : Creator
     {
+        /// <summary>
+        /// Defines the _riverPrefab.
+        /// </summary>
         [SerializeField] protected GameObject _riverPrefab;
 
+        /// <summary>
+        /// Defines the idName.
+        /// </summary>
         private const string idName = "rivers";
 
-        public override void Create(FeatureCollection collection, int scale, GameObject city)
+        /// <summary>
+        /// The Create.
+        /// </summary>
+        /// <param name="collection">The collection<see cref="FeatureCollection"/>.</param>
+        /// <param name="scale">The scale<see cref="float"/>.</param>
+        /// <param name="city">The city<see cref="GameObject"/>.</param>
+        public override void Create(dynamic collection, float scale, GameObject city)
         {
             var _parent = CityGeneratorHelper.GetParentTransformFromCity(city, CityElements.Rivers);
-            var roadFeature = CityGeneratorHelper.GetFeatureBasedOnPropertyValueName(collection, idName);
-            var polygons = ((MultiLineString)roadFeature.Geometry).Coordinates;
+            var riversFeature = CityGeneratorHelper.GetFeatureBasedOnPropertyValueName(collection, idName);
+            if (riversFeature == null)
+            {
+                return;
+            }
+            var polygons = CityGeneratorHelper.GetPolygonsFromFeature(riversFeature);
             foreach (var poly in polygons)
             {
                 Vector3[] positions;

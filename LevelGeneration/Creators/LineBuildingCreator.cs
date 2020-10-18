@@ -1,17 +1,16 @@
 ﻿namespace Assets.Scripts.Logic.LevelGeneration.Creators
 {
-    using UnityEditor;
     using UnityEngine;
 
     /// <summary>
-    /// Defines the <see cref="BuildingCreator" />.
+    /// Defines the <see cref="LineBuildingCreator" />.
     /// </summary>
-    public class BuildingCreator : Creator
+    public class LineBuildingCreator : Creator
     {
         /// <summary>
-        /// Defines the _buildingPrefab.
+        /// Defines the _buildingLinePrefab.
         /// </summary>
-        [SerializeField] private GameObject _buildingPrefab;
+        [SerializeField] protected GameObject _buildingLinePrefab;
 
         /// <summary>
         /// Defines the idName.
@@ -34,16 +33,11 @@
             }
             var polygons = CityGeneratorHelper.GetPolygonsForBuildings(buildingFeature);
 
-            int meshIndex = 0;
-
-            string folderName = AssetFolderHelper.CreateFolderToSaveCity(city, MeshFolder.Folder);
-
-
             foreach (var poly in polygons)
             {
-                Mesh mesh = CityGeneratorHelper.CreateMeshFromGeoJsonPolygon(poly, _buildingPrefab, _parent, scale);
-                AssetDatabase.CreateAsset(mesh, folderName + meshIndex + ".asset");
-                meshIndex++;
+                Vector3[] positions;
+                var lineRenderer = MultiLineStringHandler.CreateLineRenderer(_buildingLinePrefab, _parent);
+                MultiLineStringHandler.UpdateLineRendererPoints(poly, out positions, scale, lineRenderer);
             }
         }
     }
